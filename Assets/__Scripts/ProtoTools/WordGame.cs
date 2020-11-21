@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic; // We'll be using List<> & Dictionary<>
 using System.Linq; // We'll be using LINQ
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public enum GameMode
 {
     preGame, // Before the game starts
@@ -27,6 +28,7 @@ public class WordGame : MonoBehaviour
     public float scoreComboDelay = 0.5f;
     public Color[] wyrdPalette;
     public int score = 0;
+    public int wordCount;
     public bool ________________;
     public GameMode mode = GameMode.preGame;
     public WordLevel currLevel;
@@ -100,6 +102,7 @@ public class WordGame : MonoBehaviour
         }
         // List<string>.Sort() sorts alphabetically by default
         level.subWords.Sort();
+        wordCount = level.subWords.Count;
         // Now sort by length to have words grouped by number of letters
         level.subWords = SortWordsByLength(level.subWords).ToList();
         // The coroutine is complete, so call SubWordSearchComplete()
@@ -307,6 +310,10 @@ public class WordGame : MonoBehaviour
                 }
                 break;
         }
+        if (score == wordCount && score > 0)
+        {
+            SceneManager.LoadScene("__WordGame_Scene_0");
+        }
     }
     // This finds an available Letter with the char c in bigLetters.
     // If there isn't one available, it returns null.
@@ -380,11 +387,6 @@ public class WordGame : MonoBehaviour
         }
         // Clear the active big Letters regardless of whether testWord was valid
         ClearBigLettersActive();
-        
-        if(score == WordList.S.wordCount)
-        {
-            Application.LoadLevel(Application.loadedLevel);
-        }
     }
     // Highlight a Wyrd
     void HighlightWyrd(int ndx)
