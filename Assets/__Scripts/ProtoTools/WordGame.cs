@@ -25,6 +25,8 @@ public class WordGame : MonoBehaviour
     public List<float> scoreFontSizes = new List<float> { 24, 36, 36, 1 };
     public Vector3 scoreMidPoint = new Vector3(1, 1, 0);
     public float scoreComboDelay = 0.5f;
+    public Color[] wyrdPalette;
+    public int score = 0;
     public bool ________________;
     public GameMode mode = GameMode.preGame;
     public WordLevel currLevel;
@@ -163,6 +165,9 @@ public class WordGame : MonoBehaviour
                 wyrd.Add(lett);
             }
             if (showAllWyrds) wyrd.visible = true; // This line is for testing
+                                                   // Color the wyrd based on length
+            wyrd.color = wyrdPalette[word.Length - WordList.S.wordLengthMin];
+
             wyrds.Add(wyrd);
             // If we've gotten to the numRows(th) row, start a new column
             if (i % numRows == numRows - 1)
@@ -346,6 +351,7 @@ public class WordGame : MonoBehaviour
                 // ...then highlight the subWord
                 HighlightWyrd(i);
                 Score(wyrds[i], 1); // Score the testWord
+                score++;
                 foundTestWord = true;
             }
             else if (testWord.Contains(subWord))
@@ -369,10 +375,16 @@ public class WordGame : MonoBehaviour
                 HighlightWyrd(containedWords[ndx]);
                 Score(wyrds[containedWords[ndx]], i + 2); // Score other words
                                                           // The second parameter (i+2) is the # of this word in the combo
+                score++;
             }
         }
         // Clear the active big Letters regardless of whether testWord was valid
         ClearBigLettersActive();
+        
+        if(score == WordList.S.wordCount)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
     // Highlight a Wyrd
     void HighlightWyrd(int ndx)
@@ -434,5 +446,6 @@ public class WordGame : MonoBehaviour
             txt += " x " + combo;
         }
         fs.GetComponent<Text>().text = txt;
+        
     }
 }
