@@ -9,9 +9,9 @@ public class Start_Scene : MonoBehaviour
     {
 
     }
-    public void Change_Scene()
+    public void Change_Scene(string scene)
     {
-        SceneManager.LoadScene("__WordGame_Scene_0");
+        SceneManager.LoadScene(scene);
     }
     
 }

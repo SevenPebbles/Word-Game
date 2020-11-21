@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__WordGame_Scene_0.unity
     guid: 71b3942c7a4794ef8ac171268f62e219
+  - enabled: 1
+    path: Assets/__WordGame_Scene_1.unity
+    guid: 1fdd16d13b704f640bf88c2049f2ee33
+  - enabled: 1
+    path: Assets/__WordGame_Scene_2.unity
+    guid: c5d20675f8a29f549a4885c0004f0444
+  - enabled: 1
+    path: Assets/__WordGame_Scene_3.unity
+    guid: ffbbfc5782146794799326745790f1ac
+  - enabled: 1
+    path: Assets/__WordGame_Scene_4.unity
+    guid: 5a54e2ca1dc8a774ca3bfe708bc188aa
   m_configObjects: {}

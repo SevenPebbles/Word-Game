@@ -16,6 +16,8 @@ public class WordGame : MonoBehaviour
 {
     static public WordGame S; // Singleton
     public GameObject prefabLetter;
+    public GameObject startButton;
+    public GameObject nextButton;
     public Rect wordArea = new Rect(-24, 19, 48, 28);
     public float letterSize = 1.5f;
     public bool showAllWyrds = true;
@@ -40,6 +42,8 @@ public class WordGame : MonoBehaviour
     void Awake()
     {
         S = this; // Assign the singleton
+        startButton.SetActive(false);
+        nextButton.SetActive(false);
     }
     void Start()
     {
@@ -312,7 +316,8 @@ public class WordGame : MonoBehaviour
         }
         if (score == wordCount && score > 0)
         {
-            SceneManager.LoadScene("__WordGame_Scene_0");
+            startButton.SetActive(true);
+            nextButton.SetActive(true);
         }
     }
     // This finds an available Letter with the char c in bigLetters.

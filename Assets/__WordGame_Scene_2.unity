@@ -341,7 +341,7 @@ MonoBehaviour:
   wordListText: {fileID: 4900000, guid: 22e5a51e6732c452fab90efed574a934, type: 3}
   numToParseBeforeYield: 100
   wordLengthMin: 3
-  wordLengthMax: 4
+  wordLengthMax: 6
   ________________: 0
   currLine: 0
   totalLines: 0
@@ -728,7 +728,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: __WordGame_Scene_1
+          m_StringArgument: __WordGame_Scene_4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1067123317
