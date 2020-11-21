@@ -390,10 +390,10 @@ MonoBehaviour:
   bigColorSelected: {r: 1, g: 1, b: 1, a: 1}
   bigLetterCenter: {x: 0, y: -16, z: 0}
   scoreFontSizes:
-  - 12
-  - 18
-  - 18
-  - 18
+  - 24
+  - 36
+  - 36
+  - 36
   scoreMidPoint: {x: 1, y: 1, z: 0}
   scoreComboDelay: 0.5
   ________________: 0
