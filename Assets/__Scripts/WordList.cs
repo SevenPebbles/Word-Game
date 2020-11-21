@@ -50,6 +50,7 @@ public class WordList : MonoBehaviour
                 yield return null;
             }
         }
+        gameObject.SendMessage("WordListParseComplete");
     }
 
     public List<string> GetWords()
